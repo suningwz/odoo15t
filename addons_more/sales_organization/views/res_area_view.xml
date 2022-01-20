@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_area_view_form" model="ir.ui.view">
+            <field name="name">res.area.view.form</field>
+            <field name="model">res.area</field>
+            <field name="arch" type="xml">
+                <form string="Area">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="manager_id"/>
+                            </group>
+                            <group>
+                                <field name="user_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_area_view_tree" model="ir.ui.view">
+            <field name="name">res.area.view.tree</field>
+            <field name="model">res.area</field>
+            <field name="arch" type="xml">
+                <tree string="Area">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="manager_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_area_view_search" model="ir.ui.view">
+            <field name="name">res.area.view.search</field>
+            <field name="model">res.area</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="manager_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_res_area_view_form" model="ir.actions.act_window">
+            <field name="name">Area</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.area</field>
+            <field name="view_id" ref="res_area_view_tree"/>
+        </record>
+
+        <menuitem id="menu_action_res_area_view_form"
+                  action="action_res_area_view_form"
+                  parent="crm_menu_masterdata"
+                  sequence="5"/>
+    </data>
+</odoo>
