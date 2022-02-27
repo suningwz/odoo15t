@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="view_api_message_log_tree" model="ir.ui.view">
+            <field name="name">api.message.log.tree</field>
+            <field name="model">api.message.log</field>
+            <field name="arch" type="xml">
+                <tree string="Api Log">
+                    <field name="api_type"/>
+                    <field name="name"/>
+                    <field name="display_name"/>
+                    <field name="odoo12_id"/>
+                    <field name="res_model"/>
+                    <field name="res_id"/>
+                    <field name="record_name"/>
+                    <field name="message15_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_api_message_log_search" model="ir.ui.view">
+            <field name="name">api.message.log.search</field>
+            <field name="model">api.message.log</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="view_api_message_log_form" model="ir.ui.view">
+            <field name="name">api.message.log.form</field>
+            <field name="model">api.message.log</field>
+            <field name="arch" type="xml">
+                <form string="Api">
+                    <header>
+                        <button name="button_process_attachment" string="Process get attachment"
+                                type="object" class="btn-success"/>
+                        <button name="button_process_message" string="Process get message"
+                                type="object" class="btn-success"/>
+                        <button name="button_create_data" type="object" string="Create data" class="btn-success"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="display_name"/>
+                                <field name="odoo12_id"/>
+                                <field name="subject"/>
+                                <field name="date"/>
+                                <field name="body"/>
+                                <field name="res_model"/>
+                                <field name="res_model_name"/>
+                                <field name="res_id"/>
+                                <field name="record_name"/>
+                                <field name="res_name"/>
+                                <field name="type"/>
+                                <field name="message_id"/>
+                                <field name="is_message_attachment"/>
+                                <field name="datas"/>
+                            </group>
+                            <group>
+
+                                <field name="message_type"/>
+                                <field name="subtype_id"/>
+                                <field name="email_from"/>
+                                <field name="reply_to"/>
+                                <field name="message_action"/>
+                                <field name="author_id"/>
+                                <field name="rating_value"/>
+                                <field name="description"/>
+
+                            </group>
+                            <group>
+                                <field name="api_type"/>
+                                <field name="message15_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_api_message_log" model="ir.actions.act_window">
+            <field name="name">Api Message Log</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">api.message.log</field>
+            <field name="view_id" ref="view_api_message_log_tree"/>
+        </record>
+
+        <menuitem id="menu_action_api_message_log"
+                  action="action_api_message_log"
+                  parent="menu_api_root"
+                  sequence="5"/>
+
+    </data>
+</odoo>

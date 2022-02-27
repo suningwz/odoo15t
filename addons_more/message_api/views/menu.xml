@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- MENU ITEMS -->
+
+        <menuitem id="menu_api_root"
+                  name="API"
+                  parent="base.menu_custom"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>
